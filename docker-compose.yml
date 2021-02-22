@@ -1,0 +1,15 @@
+version: "3.5"
+
+services:
+  db:
+    image: postgres:latest
+    container_name: db
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - ./tmp/database:/var/lib/postgresql/data
