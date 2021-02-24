@@ -9,6 +9,9 @@ defmodule RocketpayWeb.Router do
     pipe_through :api
 
     post "/users", UsersController, :create
+
+    post "/accounts/:id/deposit", AccountController, :deposit
+    post "/accounts/:id/withdraw", AccountController, :withdraw
   end
 
   if Mix.env() in [:dev, :test] do
